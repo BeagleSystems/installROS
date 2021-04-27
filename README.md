@@ -49,7 +49,46 @@ where optionalWorkspaceName is the name of the workspace to be used. The default
  
 <pre>
 $ sudo apt-key del 421C365BD9FF1F717815A3895523BAEEB01FA116
-</pre> 
+</pre>
+
+
+## Extra installation to setup Beagle Drones
+```
+  # install mavros
+  sudo apt install ros-melodic-mavros ros-melodic-mavros-extras
+  # install geographic lib
+  bash install_geographiclib_datasets.sh
+
+  # install service to launch mavros after bootup
+  cd mavros_service
+  bash install_mavros_service.sh
+
+  # Check drone ip address
+  ifconfig
+
+  # If using VPN network
+  # make change in start_mavros.sh according to the order of ip showing on "hostname -I"
+  nano start_mavros.sh
+```
+```
+  # change 1 to the ordering number N
+  local_ip="$(hostname -I | cut -d ' ' -f N)"
+```
+
+
+__Quick Check on the ROS clients__
+```
+  export ROS_MASTER_URI=http://<drone_ip_address>:11311
+  rostopic list
+```
+
+
+
+## Bealge Notes
+<strong>April 2021</strong>
+* Jetson NANO B01 development board
+* JetPack 4.5.1 still works
+
 
 
 ## Release Notes
@@ -94,3 +133,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  
+
