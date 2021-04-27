@@ -1,0 +1,9 @@
+[Unit]
+Description=Start mavros service to passthrough to GCS
+After=network.target
+
+[Service]
+ExecStart=/usr/local/sbin/start_mavros.sh
+
+[Install]
+WantedBy=multi-user.target
