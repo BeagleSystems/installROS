@@ -133,4 +133,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  
-
+## QA
+Q: "No module named basemap"
+A: basemap is outdated for a long time, pip install from github will solve it.
+ ```
+ pip install --user git+https://github.com/matplotlib/basemap.git
+ ```
